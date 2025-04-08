@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #444;
+    padding: 0.5rem;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
+/* Style général des cartes */
+.card {
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    display: inline-block;
+    width: 200px; /* Largeur fixe pour toutes les cartes */
+    height: 250px; /* Hauteur ajustée pour mieux s'adapter au texte */
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden; /* Cache toute partie de l'image qui dépasse la taille de la carte */
+    text-align: center;
+}
+
+/* Pour la carte avec image plus petite */
+.card img {
+    width: 150px; /* Taille réduite pour les images */
+    height: 150px; /* Hauteur réduite pour les images */
+    object-fit: cover; /* L'image couvre la surface sans déformer l'aspect */
+    margin-bottom: 15px; /* Espace entre l'image et le texte */
+}
+
+/* Effet au survol */
+.card:hover {
+    box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+    transform: scale(1.02);
+    transition: 0.3s;
+}
+
+/* Pour le texte dans la carte */
+.card p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.event {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: 80%;
+    max-width: 500px;
+}
+
+/* Style général pour la page de détails du jeu */
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Pour l'image de la page de détails, image carrée */
+img {
+    width: 300px; /* Largeur fixe */
+    height: 300px; /* Hauteur fixe, ce qui la rend carrée */
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 8px; /* Arrondi des coins pour un aspect plus esthétique */
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    object-fit: cover; /* L'image couvre l'espace du carré sans déformer l'aspect */
+}
+
+
+/* Titres de sections */
+h2 {
+    font-size: 1.8rem;
+    margin-top: 40px;
+    color: #444;
+    text-align: center;
+}
+
+/* Style des paragraphes */
+p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Liste des catégories de jeu */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    padding: 5px 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+ul li::before {
+    content: "✔️"; /* Ajoute une coche devant chaque catégorie */
+    margin-right: 8px;
+}
+
+/* Container d'information supplémentaire */
+.container p strong {
+    font-weight: bold;
+    color: #333;
+}

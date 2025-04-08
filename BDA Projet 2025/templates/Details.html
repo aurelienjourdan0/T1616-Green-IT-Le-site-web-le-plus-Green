@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h2>{{ jeu.name }}</h2>
+        <img src="{{ url_for('static', filename='images/' + jeu.thumbnail + '.jpg') }}" alt="{{ jeu.name }}">
+        
+        <p><strong>Année de publication :</strong> {{ jeu.yearpublished }}</p>
+        <p><strong>Nombre de joueurs :</strong> {{ jeu.minplayers }} - {{ jeu.maxplayers }}</p>
+        <p><strong>Durée moyenne :</strong> {{ jeu.playingtime }} min</p>
+        <p><strong>Tranche d'âge :</strong> {{ jeu.minage }} ans et plus</p>
+        <p><strong>Note Moyenne :</strong> {{ jeu.average }}</p>
+        <p><strong>Note Bayesienne :</strong> {{ jeu.bayes_average }}</p>
+        <p><strong>Utilisateurs ayant noté :</strong> {{ jeu.users_rated }}</p>
+
+        <h2>Description</h2>
+        <p>{{ jeu.description }}</p>
+
+        <h2>Catégories</h2>
+        <ul>
+            {% for cat in jeu.boardgamecategory %}
+                <li>{{ cat }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Éditeur</h2>
+        <p>{{ jeu.boardgamepublisher }}</p>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Accueil - Fandom Jeux{% endblock %}
+
+{% block content %}
+    <h2>Jeux populaires</h2>
+    <div class="card">
+        <a href="{{ url_for('details', jeu_name='Catan') }}">
+            <img src="../static/images/Catan.jpg" alt="Catan">
+            <p><strong>Catan</strong></p>
+            <p>Année : 1995</p>
+            <p>Note Moyenne : 7.1</p>
+        </a>
+    </div>
+    <div class="card">
+        <a href="{{ url_for('details', jeu_name='Carcassonne') }}">
+            <img src="../static/images/CARCASSONNE.jpg" alt="Carcassonne">
+            <p><strong>Carcassonne</strong></p>
+            <p>Année : 2000</p>
+            <p>Note Moyenne : 7.4</p>
+        </a>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h2>Forum des Jeux de Société</h2>
+        
+        <p>Bienvenue sur le forum des passionnés de jeux de société. Discutez des dernières sorties, des stratégies, et bien plus !</p>
+
+        <h3>Les derniers sujets</h3>
+        <ul>
+            <a href="forum/post/1">Vente de jeux de société - Offre spéciale!</a>
+            {% for post in posts %}
+                <li><a href="{{ url_for('forum_post', post_id=post.id) }}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+
+        <h3>Créez un nouveau sujet</h3>
+        <form action="/submit_forum_post" method="POST">
+            <label for="title">Titre :</label><br>
+            <input type="text" id="title" name="title" required><br><br>
+            
+            <label for="content">Contenu :</label><br>
+            <textarea id="content" name="content" rows="4" cols="50" required></textarea><br><br>
+            
+            <button type="submit">Publier</button>
+        </form>
+    </div>
+{% endblock %}
