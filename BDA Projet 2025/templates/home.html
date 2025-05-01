@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Accueil - Fandom jeux{% endblock %}
+
+{% block content %}
+
+<h2 class="text-center">🏆 Top 3 des jeux les mieux classés</h2>
+<div class="podium">
+    {% for game in top_3 %}
+    <div class="{% if loop.index == 1 %}first{% elif loop.index == 2 %}second{% else %}third{% endif %}">
+        <a href="{{ url_for('details', game_name=game.name) }}">
+            <img src="{{ game.thumbnail }}" alt="{{ game.name }}">
+            <p><strong>#{{ game.rank }} - {{ game.name }}</strong></p>
+            <p>{{ game.year }}</p>
+            <p>Note : {{ game.average }}</p>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="random-section">
+    <h2 class="text-center">🎲 jeux aléatoires à découvrir</h2>
+    <div class="random-games">
+        {% for game in random_5 %}
+        <div class="card">
+            <a href="{{ url_for('details', game_name=game.name) }}">
+                <img src="{{ game.thumbnail }}" alt="{{ game.name }}">
+                <p><strong>{{ game.name }}</strong></p>
+                <p>Année : {{ game.year }}</p>
+                <p>Note Moyenne : {{ game.average }}</p>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

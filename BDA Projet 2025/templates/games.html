@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Jeux</title>
+</head>
+<body>
+    <h1>Liste des Jeux de Société</h1>
+    <ul>
+        {% for game in games %}
+            <li>
+                <h2>{{ game.name }}</h2>
+                <p>{{ game.description }}</p>
+                <p><strong>Année :</strong> {{ game.yearpublished }}</p>
+                <p><strong>Nombre de joueurs :</strong> {{ game.minplayers }} - {{ game.maxplayers }}</p>
+                <p><strong>Durée :</strong> {{ game.playingtime }} min</p>
+                <p><strong>Note moyenne :</strong> {{ game.average }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

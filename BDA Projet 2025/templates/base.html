@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>    
+<body>
+    <header>
+        <h1>Fandom Jeux de Société</h1>
+    </header>
+
+    <nav>
+        <a href="{{ url_for('home') }}">Accueil</a>
+        <a href="{{ url_for('search') }}">Recherche de jeux</a>
+        <a href="{{ url_for('events') }}">Événements</a>
+        <a href="{{ url_for('forum') }}">Forum</a>
+    </nav>
+    <div style="position: absolute; top: 20px; right: 20px;">
+        {% if session.get('username') %}
+          <span style="color: white; font-weight: bold;">Bienvenue, {{ session['username'] }} !</span>
+          <a href="{{ url_for('logout') }}" style="margin-left: 10px; color: #ffcc00;">Déconnexion</a>
+        {% else %}
+          <a href="{{ url_for('login') }}" style="margin-right: 10px; color: #00c4ff;">Connexion</a>
+          <a href="{{ url_for('register') }}" style="color: #00c4ff;">Inscription</a>
+        {% endif %}
+      </div>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>

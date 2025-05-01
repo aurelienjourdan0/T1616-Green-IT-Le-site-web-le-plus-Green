@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
+        <h2 style="text-align: center;">{{ game.name|safe }}</h2>
+
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="{{ rating.thumbnail }}" alt="{{ game.name }}" style="max-width: 300px; height: auto; border-radius: 10px;">
+        </div>
+
+        <p><strong>Année de publication :</strong> {{ game.yearpublished }}</p>
+        <p><strong>Nombre de joueurs :</strong> {{ game.minplayers }} à {{ game.maxplayers }}</p>
+        <p><strong>Durée de jeu :</strong> {{ game.playingtime }} min ({{ game.minplaytime }}–{{ game.maxplaytime }} min)</p>
+        <p><strong>Âge minimum :</strong> {{ game.minage }} ans</p>
+
+        <p><strong>Note moyenne :</strong> {{ rating.average }}</p>
+        <p><strong>Note bayésienne :</strong> {{ rating.bayes_average }}</p>
+        <p><strong>Classement mondial :</strong> #{{ rating.rank }}</p>
+        <p><strong>Nombre d’utilisateurs ayant noté :</strong> {{ rating.users_rated }}</p>
+
+        <h3>Description</h3>
+        <p>{{ game.description|safe }}</p>
+
+        {% if game.boardgamecategory %}
+        <h3>Catégorie</h3>
+        <p>{{ game.boardgamecategory }}</p>
+        {% endif %}
+
+        {% if game.boardgamemechanic %}
+        <h3>Mécanique</h3>
+        <p>{{ game.boardgamemechanic }}</p>
+        {% endif %}
+
+        {% if game.boardgamedesigner %}
+        <h3>Auteur</h3>
+        <p>{{ game.boardgamedesigner }}</p>
+        {% endif %}
+
+        {% if game.boardgameartist %}
+        <h3>Illustrateur</h3>
+        <p>{{ game.boardgameartist }}</p>
+        {% endif %}
+
+        {% if game.boardgamepublisher %}
+        <h3>Éditeur</h3>
+        <p>{{ game.boardgamepublisher }}</p>
+        {% endif %}
+
+        {% if rating.url %}
+        <h3>Lien externe</h3>
+        <p><a href="https://boardgamegeek.com/{{ rating.url }}" target="_blank">Voir sur BoardGameGeek</a></p>
+        {% endif %}
+    </div>
+{% endblock %}
